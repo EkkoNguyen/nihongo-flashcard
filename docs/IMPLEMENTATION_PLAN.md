@@ -14,7 +14,7 @@ Use [`TEST_STRATEGY.md`](TEST_STRATEGY.md) for the required test matrix. For eac
 - Configure TypeScript, lint/format, environment validation, root `.env` loading, local dev scripts, health endpoint, error handling, and exact-origin CORS. Apply Better Auth secure-cookie and trusted-origin policy in Phase 1 when auth is initialized.
 - Set up GitHub Actions for typecheck, unit tests, and builds; connect staging deployment only after provider credentials are configured.
 - Add MongoDB connection, development database config, collection validation/index setup, and local seed data.
-- **Done when:** web and API run locally from documented commands; Phase 0 checks in `TEST_STRATEGY.md` pass; secrets are absent from the repo; MongoDB setup/schema verification passes; CI and staging health checks pass when their providers are configured. Current state (2026-11-23): local install, static checks, 8 tests, build, Compose validation, API health, web response, MongoDB setup/schema validation, and idempotent seed pass. Hosted CI and staging remain pending because this checkout has no Git metadata/remote or cloud credentials.
+- **Done when:** web and API run locally from documented commands; Phase 0 checks in `TEST_STRATEGY.md` pass; secrets are absent from the repo; MongoDB setup/schema verification passes; CI and staging health checks pass when their providers are configured. Current state (2026-11-23): local install, static checks, 8 tests, build, Compose validation, API health, web response, MongoDB setup/schema validation, and idempotent seed pass. GitHub Actions CI passed for the initial commit ([run 45138878020](https://github.com/EkkoNguyen/nihongo-flashcard/actions/runs/45138878020)); staging remains pending Render/account configuration.
 
 ## Phase 1 — Accounts and Private Data Boundaries
 
@@ -67,7 +67,7 @@ Use [`TEST_STRATEGY.md`](TEST_STRATEGY.md) for the required test matrix. For eac
 
 ## Immediate Next Tasks
 
-1. Connect this checkout to its Git remote and verify the configured CI workflow.
-2. Configure the planned staging host and non-production service credentials; keep staging separate from production.
+1. Configure the planned staging host and non-production service credentials; keep staging separate from production.
+2. Run staging health checks after deployment and record the result.
 3. Define the exact auth collections and secure cookie/trusted-origin settings for Phase 1.
 4. Implement Phase 1, then pass its auth and cross-user verification gate before starting deck/card features.
